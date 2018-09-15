@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <title>Abishake</title>  
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	    <link rel="icon" href="assets/logo.png">
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway');
+
+			* { margin: 0; padding: 0; }
+			html {
+			    height: 100%;
+			}
+			body {
+			    font-size: 16px;
+			    background: url(images/space.jpg) no-repeat center center fixed;
+			    color: gray;
+			    text-align: center;
+			    height: 100%;
+			}
+
+			#particles-js{
+				 position: relative;
+				  width: 100%;
+				  height: 100%;
+				  background-color: #000;
+				  background-repeat: no-repeat;
+				  background-size: cover;
+				  z-index: 0;
+			}
+
+			#block-content {
+			    display: block;
+			    margin: 0 auto;
+			    width: 400px;
+			    position: absolute;
+			    bottom:50vh;
+			    right:50vw;
+			    z-index: 2000;
+			   	transform: translate(50%, 50%);
+			    background-color: #f4f4f4;
+			    border-radius: 7px;
+			    padding:  5px 20px;
+			    opacity: 0.92;
+			    -webkit-animation-duration: 2 s;
+			            animation-duration: 2 s;
+			    -webkit-box-shadow: 18px 11px 135px -25px black;
+			            box-shadow: 18px 11px 135px -25px black;
+			    -webkit-transform-style: preserve-3d;
+			            transform-style: preserve-3d;
+			    -webkit-transition: 0.5s;
+			            transition: 0.5s;
+			    -webkit-perspective: 1500px;
+			            perspective: 1500px;
+			}
+
+			@media screen and (max-width: 500px) {
+			    #block-content {
+			        width: 80%;
+			    }
+			}
+
+			#profile-image {
+			    display: inline-block;
+			    margin-top: 20px;
+			    width: 200px;
+			    height: 200px;
+			    border-radius: 100px;
+			    transition: all 0.3s ease-in-out;
+			}
+
+			@media screen and (max-width: 500px) {
+			    #profile-image {
+			        width: 120px;
+			        height: 120px;
+			    }
+			}
+
+			#profile-image:hover {
+			    filter: none;
+			    transform: scale(1.05);
+			}
+
+
+			#text-container {
+			    font-family: 'Raleway', sans-serif;
+			    display: inline-block;
+			    margin-top: 20px;
+			    margin-bottom: 0;
+			}
+
+			.link {
+			    text-decoration: none;
+			    font-size: 26px;
+			    color: gray;
+			}
+
+			footer {
+			    opacity: 0.2;
+			    font-family: 'Raleway', sans-serif;
+			    transition: all 0.5s ease-in-out;
+			    margin: 5px auto;
+			    position: absolute;
+			    text-align: center;
+			    bottom: 0;
+			    right: 0;
+			    left: 0;
+			    color: white;
+			}
+
+			@media screen and (max-width: 500px) {
+			    footer {
+			        display: none;
+			    }
+			}
+
+			footer:hover {
+			    opacity: 0.9;
+			}
+
+			.footer-text {
+			    font-size: 12px;
+			}
+
+			.footer-text a {
+			    text-decoration: none;
+			    color: white;
+			}
+
+			.small-link {
+			    font-size: 16px;
+			}
+
+			.highlight {
+			    color: maroon;
+			}
+
+			h1 {
+			    font-family: 'Raleway', sans-serif;
+			}
+			@media screen and (max-width: 400px) {
+			    h1 {
+			        font-size: 28px;
+			    }
+			}
+		</style>
+</head>
+<body style="background: #000;">
+<div id="particles-js">
+		<div id="block-content">
+		    <div class="face front">
+		        <img src="assets/img.jpeg" id="profile-image">
+		        <div id="text-container">
+		            <h1 class="name-tag">ABISHAKE</h1> 
+		            <br>
+		            <hr>
+		            <br>
+		            Hi I'm Abishake, a young programmer interested in Web Development and Competitve coding.
+		            <br><br>
+		            I am currently in my sophomore year studying Computer Science and Engineering at NIT Trichy.
+		            <br><br>
+
+		            Check out my <a class="link small-link highlight" href="http://abishake.me/resume.pdf">Resumé</a>!
+		            <br><br>
+
+		            <div id="links-container">
+		              <span>
+		                <a class="link" href="http://abishake.me/resume.pdf">
+		                  <i class="fa fa-lg fa-file-text"></i>
+		                </a>
+		              </span>
+		              <span>
+		                <a class="link" href="https://github.com/shakeabi">
+		                  <i class="fa fa-lg fa-github"></i>
+		                </a>
+		              </span>
+		              <span>
+		                <a class="link" href="https://www.linkedin.com/in/abi-shake">
+		                  <i class="fa fa-lg fa-linkedin"></i>
+		                </a>
+		              </span>
+		              <span>
+		                <a class="link" href="mailto:abishake.110899@gmail.com">
+		                  <i class="fa fa-lg fa-envelope"></i>
+		                </a>
+		              </span>
+		              <span>
+		                <a class="link" href="https://www.facebook.com/abishake.110899">
+		                  <i class="fa fa-lg fa-facebook"></i>
+		                </a>
+		              </span>
+		            </div>
+		            <br>
+		        </div>
+		    </div>
+   		</div>	
+</div>
+
+<footer>
+    <div class="footer-text">
+        Made with ❤
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
