@@ -73,7 +73,7 @@
 						<li><a href="#" data-nav-section="education">Education</a></li>
 						<li><a href="#" data-nav-section="experience">Experience</a></li>
 						<li><a href="#" data-nav-section="work">Work</a></li>
-						<!-- <li><a href="#" data-nav-section="blog">Blog</a></li> -->
+						<li><a href="#" data-nav-section="blog">Blog</a></li>
 						<li><a href="#" data-nav-section="contact">Contact</a></li>
 					</ul>
 				</div>
@@ -730,7 +730,7 @@
 				</div>
 			</section>
 
-			<!-- <section class="colorlib-blog" data-section="blog">
+			<section class="colorlib-blog" data-section="blog">
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -738,45 +738,15 @@
 							<h2 class="colorlib-heading">Recent Blog</h2>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-1.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Renovating National Gallery</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-2.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Wordpress for a Beginner</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-3.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Make website from scratch</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
+					<div class="row" id="blogs">
 					</div>
 					<div class="row">
 						<div class="col-md-12 animate-box">
-							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+							<p><a href="https://medium.com/@shakeabi" target="_blank" class="btn btn-primary btn-lg btn-load-more">More Articles <i class="icon-arrow-right-thick"></i></a></p>
 						</div>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
 			<section class="colorlib-contact" data-section="contact">
 				<div class="colorlib-narrow-content">
@@ -870,6 +840,41 @@
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 	<script src="js/custom.js"></script>
+
+	<script>
+		fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@shakeabi')
+		.then((res) => res.json())
+		.then((data) => {
+			// Fillter the array
+			const res = data.items //This is an array with the content. No feed, no info about author etc..
+			const posts = res.filter(item => item.categories.length > 0) // That's the main trick* !
+			
+			// let netBlogHtml=document.getElementById('blogs').innerHTML;
+			let netBlogHtml="";
+			const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			const animations = ["fadeInLeft","fadeInRight"]
+			posts.forEach((ele,idx)=>{
+				const eleDate = new Date(ele.pubDate);
+				
+				if(idx<3)
+				netBlogHtml+=
+				`<div class="col-md-4 col-sm-6 animate-box item-animate" data-animate-effect="${animations[idx%2]}">
+					<div class="blog-entry">
+						<a href="${ele.guid}" target="_blank" class="blog-img"><img src="${ele.thumbnail}" class="img-responsive" style="object-fit:cover;width: 90%;" alt="Image not available..."></a>
+						<div class="desc">
+							<span><small>${monthNames[eleDate.getMonth()]} ${eleDate.getDate()}, ${eleDate.getFullYear()} </small> | <small> ${ele.categories[0]} </small>
+							<h3><a href="${ele.guid}" target="_blank">${ele.title}</a></h3>
+							<!--<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>-->
+						</div>
+					</div>
+				</div>
+				`
+			});
+			document.getElementById('blogs').innerHTML=netBlogHtml;
+
+		});
+	</script>
+
 	</body>
 </html>
 
