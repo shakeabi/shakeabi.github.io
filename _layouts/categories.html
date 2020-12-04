@@ -1,0 +1,32 @@
+---
+title: "Categories"
+layout: default
+permalink: "/categories.html"
+---
+
+{% include header-bar.html text="Categories" %}
+{% for category in site.categories %}
+{% unless category[0] == "Draft" or  category[0] == "Test" %}
+  <h4 style="display: inline-block;" class="mt-5 mb-neg-30"><a href="{{site.baseurl}}/categories#{{ category[0] | replace: " ","-" }}" class="text-capitalize badge badge-primary text-small">{{ category[0] }}</a></h4>
+  <!-- <a class="smoothscroll badge badge-primary text-capitalize" href="{{site.baseurl}}/categories#{{ category[0] | replace: " ","-" }}">{{ category[0] }}</a> -->
+{% endunless %}
+{% endfor %}
+
+{% include header-bar.html text="All" %}
+{% for category in site.categories %}
+{% unless category[0] == "Draft" or  category[0] == "Test" %}
+<h4 class="mt-5 mb-neg-30" id="{{ category[0] | replace: " ","-" }}"><span class="text-capitalize badge badge-primary text-small">{{ category[0] }}</span></h4>
+<div class="blog-grid-container">
+{% assign pages_list = category[1] %}
+{% for post in pages_list %}
+{% if post.title != null %}
+{% if group == null or group == post.group %}
+{% include postbox.html %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}
+</div>
+{% endunless %}
+{% endfor %}

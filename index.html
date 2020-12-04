@@ -1,17 +1,40 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="refresh" content="0; URL='https://shakeabi.github.io/resume'" />
-	<title>Abishake</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="Abishake, Shake, Web developer, Blockchain, Open source developer" />
-	<meta name="author" content="Abishake" />
-	</head>
-	<body>
-		<h4>Redirecting...</h4>
-	</body>
-</html>
+---
+layout: default
+title: Home
+---
+
+{% if page.url == '/' %}
+<!-- Featured Posts Header
+================================================== -->
+{% include header-bar.html text="Featured" %}
+
+<!-- Featured Posts Index
+================================================== -->
+<div class="blog-grid-container-featured">
+    {% assign featuredPosts = site.posts | where:"featured", true %}
+    {% for post in featuredPosts limit:1 %}
+            {% include postbox-featured.html %}
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- All Posts Header
+================================================== -->
+{% include header-bar.html text="All Stories" %}
+
+<!-- Posts Index
+================================================== -->
+<div class="blog-grid-container">
+    {% for post in paginator.posts %}
+        {% include postbox.html %}
+    {% endfor %}
+</div>
+
+<!-- Pagination
+================================================== -->
+<div class="bottompagination">
+<span class="navigation" role="navigation">
+    {% include pagination.html %}
+</span>
+</div>
 

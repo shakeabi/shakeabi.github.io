@@ -1,0 +1,94 @@
+backend:
+  name: github
+  branch: master
+  repo: shakeabi/shakeabi.github.io
+
+media_folder: "assets/images/"
+
+site_url: https://shakeabi.github.io/
+
+collections:
+  - name: "post"
+    label: "Post"
+    folder: "_posts"
+    sort: "date:desc"
+    create: true
+    summary: "{{categories}} ╠╬╣ {{title}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    view_filters:
+      - label: "Drafts"
+        field: categories
+        pattern: "Draft"
+      - label: "Test Posts"
+        field: categories
+        pattern: "Test"
+    fields: 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "string", default: "abishake"}
+      - {label: "Categories", name: "categories", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "string", required: false}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "ImageShadow", name: "imageshadow", widget: "boolean", default: true}
+      - {label: "Date", name: "date", widget: "datetime", required: false}
+      - {label: "Comments", name: "comments", widget: "boolean", default: false}
+      - {label: "Toc", name: "toc", widget: "boolean", default: false}
+      - {label: "Beforetoc", name: "beforetoc", widget: "text", required: false}
+      - {label: "Rating", name: "rating", value_type: "float", widget: "number", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - label: "Files"
+    name: files
+    editor:
+      preview: false
+    files:
+      - label: "Global Settings"
+        name: settings
+        file: "_config.yml"
+        fields:
+          - {label: "name", name: "name", widget: "string"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "description", name: "description", widget: "string"}
+          - {label: "logo", name: "logo", widget: "string"}
+          - {label: "favicon", name: "favicon", widget: "string"}
+          - {label: "baseurl", name: "baseurl", widget: "string"}
+          - {label: "google_analytics", name: "google_analytics", widget: "string"}
+          - {label: "disqus", name: "disqus", widget: "string"}
+          - {label: "mailchimp-list", name: "mailchimp-list", widget: "string"}
+          - {label: "include", name: "include", widget: "hidden"}
+          - {label: "permalink", name: "permalink", widget: "string"}
+          - {label: "email", name: "email", widget: "string"}
+
+          - label: "Authors"
+            name: "authors"
+            label_singular: "author"
+            widget: "list"
+            fields:
+              - {label: "name", name: "name", widget: "string"}
+              - {label: "display_name", name: "display_name", widget: "string"}
+              - {label: "avatar", name: "avatar", widget: "string"}
+              - {label: "gravatar", name: "gravatar", widget: "string"}
+              - {label: "email", name: "email", widget: "string"}
+              - {label: "web", name: "web", widget: "string"}
+              - {label: "twitter", name: "twitter", widget: "string"}
+              - {label: "description", name: "description", widget: "string"}
+          
+          - {label: "paginate", name: "paginate", widget: "number"}
+          - {label: "adsense", name: "adsense", widget: "string", hint: "Adsense (change to 'enabled' to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)"}
+          - {label: "adsense-data-ad-client", name: "adsense-data-ad-client", widget: "string"}
+          - {label: "adsense-data-ad-slot", name: "adsense-data-ad-slot", widget: "string"}
+
+          - {label: "lazyimages", name: "lazyimages", widget: "string", hint: "Lazy Images ('enabled' or 'disabled')"}
+          - {label: "authorbox", name: "authorbox", widget: "string", hint: "Post Author Box ('enabled' or 'disabled')"}
+
+      - label: "About Page"
+        name: about
+        file: "_pages/about.md"
+        fields:
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "string"}
+          - {label: "comments", name: "comments", widget: "boolean"}
+          - {label: "imagesrc", name: "image", widget: "image"}
+          - {label: "imageshadow", name: "imageshadow", widget: "boolean"}
+          - {label: "body", name: "body", widget: "markdown"}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+
+  const FigureComponent = createClass({
+    render: function() {
+      const {caption, image, alt} = this.props;
+      console.log("wheeee", this.props)
+      return h('figure', {}, [h('img',{src: image, alt}),h('figurecaption', {}, caption)] );
+    },
+  });
+
+    CMS.registerEditorComponent({
+      // Internal id of the component
+      id: "imgWithCaption",
+      // Visible label
+      label: "Image with Caption",
+      // Fields the user need to fill out when adding an instance of the component
+      fields: [{name: 'caption', label: 'Image Caption', widget: 'string'}, {name: 'image', label: 'Image', widget: 'image'}, {name: 'alt', label: 'Image alt', widget: 'string'}],
+      // Pattern to identify a block as being an instance of this component - didnt understand
+      pattern: /^<figure><img src="(.*)" alt="(.*)"\/><figurecaption>(.*)<\/figurecaption><\/figure>$/,
+      // Function to extract data elements from the regexp match
+      fromBlock: function(match) {
+        return {
+          image: match[1],
+          alt: match[2],
+          caption: match[3]
+        };
+      },
+      // Function to create a text block from an instance of this component
+      toBlock: function(obj) {
+        return `<figure><img src="${obj.image}" alt="${obj.alt}"/><figurecaption>${obj.caption}</figurecaption></figure>`
+      },
+      // Preview output for this component. Can either be a string or a React component
+      // (component gives better render performance)
+      toPreview: function(obj) {
+        return `<figure><img src="${obj.image}" alt="${obj.alt}"/><figurecaption>${obj.caption}</figurecaption></figure>`
+      }
+    });
+  </script>
+</body>
+</html>
