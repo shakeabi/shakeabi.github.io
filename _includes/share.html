@@ -4,6 +4,12 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
+            <a target="_blank" href="{{ page.url | absolute_url }}" onclick="window.prompt('Copy URL:', this.href);return false;">
+                <i class="fas fa-link"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
             <a target="_blank" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>

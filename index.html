@@ -6,13 +6,15 @@ title: Home
 {% if page.url == '/' %}
 <!-- Featured Posts Header
 ================================================== -->
+{% if site.posts.length>0 %}
 {% include header-bar.html text="Featured" %}
+{% endif %}
 
 <!-- Featured Posts Index
 ================================================== -->
 <div class="blog-grid-container-featured">
     {% assign featuredPosts = site.posts | where:"featured", true %}
-    {% for post in featuredPosts limit:1 %}
+    {% for post in featuredPosts limit:2 %}
             {% include postbox-featured.html %}
     {% endfor %}
 </div>
@@ -20,7 +22,9 @@ title: Home
 
 <!-- All Posts Header
 ================================================== -->
+{% if site.posts.length>0 %}
 {% include header-bar.html text="All Stories" %}
+{% endif %}
 
 <!-- Posts Index
 ================================================== -->

@@ -6,12 +6,12 @@ comments: false
 ---
 
 <form id="gform" onsubmit="return contactFormSubmit();">    
-<p class="mb-4">Please send your message to {{site.name}}. We will reply as soon as possible!</p>
+<p class="mb-4">Please send your message to {{site.name}}. I will reply as soon as possible!</p>
 <div class="form-group row">
-  <div class="col-md-6">
+  <div class="col-sm-12 col-md-6">
     <input type="text" class="form-control" placeholder="Name*" name="name" required>
   </div>
-  <div class="col-md-6">
+  <div class="col-sm-12 col-md-6">
     <input type="email" class="form-control" placeholder="Email*"  name="email" required>
   </div>
 </div>

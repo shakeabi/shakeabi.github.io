@@ -11,7 +11,6 @@ imageshadow: true
 ---
 Memoirs theme has Prism highlighter integrated. I will show you in this post a few examples of how it looks if you are a developer planning to add pieces of code on your website.
 
-![Yoyo](/assets/images/3.jpg "Test Title")
 
 <figure>
     <img src="/assets/images/3.jpg"/>

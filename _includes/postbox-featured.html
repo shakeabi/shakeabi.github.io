@@ -3,7 +3,7 @@
 {% assign cats = post.categories %}
 {% unless cats contains "Draft" %}
 {% unless cats contains "Test" %}
-<div class="blog-grid-item">
+<div class="blog-grid-item-featured">
     <div class="card h-100">
         <div class="maxthumb">
             <a href="{{ site.baseurl }}{{ post.url }}">
@@ -32,7 +32,7 @@
             </h2>
             <h4 class="card-text">{{ post.excerpt | strip_html | truncatewords:30 }}</h4>
         </div>
-        <div class="card-footer bg-white">
+        <div class="card-footer">
             <div class="wrapfooter">
                 {% if post.author %}
                 <span class="meta-footer-thumb">
