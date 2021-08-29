@@ -3,10 +3,8 @@ layout: page
 title: About
 permalink: /about
 comments: false
-# image: assets/images/half-img.jpeg
 imageshadow: true
 ---
-
 <hr/>
 <div id="about-container-pc" style="margin: 0; text-align:justify;">
   <img src="assets/images/half-prof-img.jpeg" style="display: block; width: 40%; margin-right: 30px; float: left;"/>
@@ -20,9 +18,9 @@ imageshadow: true
         var birthday = +new Date(dateString);
         return ~~((Date.now() - birthday) / (31557600000));
       }
-      document.write(calcAge("11-08-1999"));
+      document.write(calcAge("08-11-1999"));
     </script>
-    year old in a state college who sees life as an adventure. You can call me <b>Shake</b>. Most of the time, you’ll find me sitting in front of my laptop cracking my head on a problem or watching movies/shows, which may give you a feel that I'm an introvert, but actually I'm quite open. Come talk to me and you'll find out ᕕ( ᐛ )ᕗ. As a fairly young adult, I love to watch <b>cricket, speedcube and hangout and talk a lot</b>. <br/><br/>
+    year old, programmer, who sees life as an adventure. You can call me <b>Shake</b>. Most of the time, you’ll find me sitting in front of my laptop cracking my head on a problem or watching movies/shows, which may give you a feel that I'm an introvert, but actually I'm quite open. Come talk to me and you'll find out ᕕ( ᐛ )ᕗ. As a fairly young adult, I love to watch <b>cricket, speedcube and hangout and talk a lot</b>. <br/><br/>
     If you wanna ping me, pop a mail <a href="/contact" target="_blank"> here</a> or find me on <a href="https://www.facebook.com/sh4k3ab1/" target="_blank">FB</a>. In contrast, if you wanna read about the nerd side of me, you can do so here: <a href="https://shakeabi.github.io/resume/" target="_blank">Resume</a>.
     </span>
     </p>
@@ -40,9 +38,9 @@ imageshadow: true
         var birthday = +new Date(dateString);
         return ~~((Date.now() - birthday) / (31557600000));
       }
-      document.write(calcAge("11-08-1999"));
+      document.write(calcAge("08-11-1999"));
     </script>
-    year old in a state college who sees life as an adventure. You can call me <b>Shake</b>. Most of the time, you’ll find me sitting in front of my laptop cracking my head on a problem or watching movies/shows, which may give you a feel that I'm an introvert, but actually I'm quite open. Come talk to me and you'll find out ᕕ( ᐛ )ᕗ. As a fairly young adult, I love to watch <b>cricket, speedcube and hangout and talk a lot</b>. <br/><br/>
+    year old, programmer, who sees life as an adventure. You can call me <b>Shake</b>. Most of the time, you’ll find me sitting in front of my laptop cracking my head on a problem or watching movies/shows, which may give you a feel that I'm an introvert, but actually I'm quite open. Come talk to me and you'll find out ᕕ( ᐛ )ᕗ. As a fairly young adult, I love to watch <b>cricket, speedcube and hangout and talk a lot</b>. <br/><br/>
     If you wanna ping me, pop a mail <a href="/contact" target="_blank"> here</a> or find me on <a href="https://www.facebook.com/sh4k3ab1/" target="_blank">FB</a>. In contrast, if you wanna read about the nerd side of me, you can do so here: <a href="https://shakeabi.github.io/resume/" target="_blank">Resume</a>.
     </span>
 </div>
