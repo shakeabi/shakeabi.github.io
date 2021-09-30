@@ -12,15 +12,72 @@
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
 
-  const FigureComponent = createClass({
+  CMS.registerPreviewStyle("/assets/css/prism.css");
+  CMS.registerPreviewStyle("/assets/css/theme.css");
+  CMS.registerPreviewStyle("/assets/css/cmspreview.css");
+
+  const PostPreview = createClass({
     render: function() {
-      const {caption, image, alt} = this.props;
-      console.log("wheeee", this.props)
-      return h('figure', {}, [h('img',{src: image, alt}),h('figurecaption', {}, caption)] );
-    },
+      const entry = this.props.entry;
+      const title = entry.getIn(['data', 'title']);
+      const image = entry.getIn(['data', 'image']);
+      const imagesrc = this.props.getAsset(image).toString();
+      const image_desc = entry.getIn(['data', 'image_desc']);
+      const imageshadow = entry.getIn(['data', 'imageshadow']);
+      const toc = entry.getIn(['data', 'toc']);
+      const beforetoc= entry.getIn(['data', 'beforetoc']);
+      const rating = entry.getIn(['data', 'rating']);
+      const body = this.props.widgetFor('body');
+      
+      return h("div", {
+        class: "main-content"
+      },h("div", {
+        class: "entry-header"
+      },h("h1", {
+        class: "posttitle"
+      }, title),h("div", {
+        class: "d-flex align-items-center mt-4"
+      },h("div", null,h("img", {
+        class: "author-thumb",
+        src: "/assets/images/avatar.png",
+        alt: "Shake"
+      })),h("div", {
+        class: "d-flex flex-column justify-items-center"
+      },h("div", null, "Written by ",h("a", {
+        target: "_blank",
+        class: "text-dark",
+        href: "https://shakeabi.github.io/about"
+      }, "Author"), " on ",h("span", {
+        class: "post-date"
+      },h("time", {
+        class: "post-date",
+        datetime: "2018-06-12"
+      }, "01 Jun 2000"))),h("div", null, "X min read")))),h("div", {
+        class: "entry-featured-image"
+      }, image != "" &&h("div", null,h("img", {
+        class: imageshadow ? "featured-image image-shadow" : "featured-image",
+        src: image,
+        alt: title
+      }),h("small", null, image_desc))),h("div", {
+        class: "article-post"
+      },h("p", null, beforetoc), toc &&h("h3", null, "TOC Goes here"), body, rating &&h("div", {
+        class: "rating mt-4 mb-4 d-flex align-items-center"
+      },h("strong", {
+        class: "mr-1"
+      }, "Rating:"), " ",h("div", {
+        class: "rating-holder"
+      },h("div", {
+        class: "c-rating c-rating--regular",
+        "data-rating-value": rating
+      },h("button", null, "1"),h("button", null, "2"),h("button", null, "3"),h("button", null, "4"),h("button", null, "5"))))));
+      
+    }
   });
 
-    CMS.registerEditorComponent({
+
+  CMS.registerPreviewTemplate("post", PostPreview);
+
+  CMS.registerEditorComponent({
       // Internal id of the component
       id: "imgWithCaption",
       // Visible label

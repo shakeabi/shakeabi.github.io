@@ -28,11 +28,13 @@ $enable-rounded: false;
 @import "bootstrap/mixins";
 @import 'bootstrap/bootstrap';
 @import 'stars';
+@import url("https://fonts.googleapis.com/css?family=Sen:400,700");
 
+$Sen: 'Sen', serif; 
 
 // general
 body, input, button, select, optgroup, textarea {   
-    font-family:"Sen";
+    font-family:$Sen;
 }
 body {
     line-height:1.7;
