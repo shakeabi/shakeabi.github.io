@@ -41,6 +41,6 @@ imageshadow: true
       document.write(calcAge("08-11-1999"));
     </script>
     year old programmer, who sees life as an adventure. You can call me <b>Shake</b>. Most of the time, you’ll find me sitting in front of my laptop cracking my head on a problem or watching movies/shows, which may give you a feel that I'm an introvert, but actually I'm quite open. Come talk to me and you'll find out ᕕ( ᐛ )ᕗ. As a fairly young adult, I love to watch <b>cricket, speedcube and hangout and talk a lot</b>. <br/><br/>
-    If you wanna ping me, pop a mail <a href="/contact" target="_blank"> here</a> or find me on <a href="https://www.facebook.com/sh4k3ab1/" target="_blank">FB</a>. In contrast, if you wanna read about the nerd side of me, you can do so here: <a href="https://shakeabi.github.io/resume/" target="_blank">Resume</a>.
+    If you wanna ping me, pop a mail <a href="/contact" target="_blank"> here</a> or find me on <a rel="me" href="https://nerdculture.de/@shake" target="_blank">Mastodon</a>. In contrast, if you wanna read about the nerdy side of me, you can do so here: <a href="https://shakeabi.github.io/resume/" target="_blank">Resume</a>.
     </span>
 </div>
